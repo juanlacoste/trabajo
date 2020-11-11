@@ -1,6 +1,7 @@
 module RN
   module Commands
     module Books
+      require_relative 'rn/Book'
       class Create < Dry::CLI::Command
         desc 'Create a book'
 
@@ -12,7 +13,8 @@ module RN
         ]
 
         def call(name:, **)
-          warn "TODO: Implementar creación del cuaderno de notas con nombre '#{name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          #warn "TODO: Implementar creación del cuaderno de notas con nombre '#{name}'.\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          Book.new.create(name)
         end
       end
 
@@ -31,6 +33,7 @@ module RN
         def call(name: nil, **options)
           global = options[:global]
           warn "TODO: Implementar borrado del cuaderno de notas con nombre '#{name}' (global=#{global}).\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+          Book.new.delete(name,global)
         end
       end
 
